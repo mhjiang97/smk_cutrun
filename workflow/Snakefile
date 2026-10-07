@@ -1,0 +1,17 @@
+include: "rules/common.smk"
+include: "rules/qc/qc.smk"
+include: "rules/qc/fastp.smk"
+include: "rules/mapper/bowtie2.smk"
+include: "rules/gatk/mark_duplicates.smk"
+include: "rules/samtools/faidx.smk"
+include: "rules/bedtools/complement.smk"
+include: "rules/samtools/view.smk"
+include: "rules/deeptools/bam_coverage.smk"
+include: "rules/bedtools/bamtobed.smk"
+include: "rules/bedtools/genomecov.smk"
+include: "rules/caller/seacr.smk"
+
+
+rule all:
+    input:
+        lambda wildcards: get_targets(),
